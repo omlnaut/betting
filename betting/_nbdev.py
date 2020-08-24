@@ -5,10 +5,17 @@ __all__ = ["index", "modules", "custom_doc_links", "git_url"]
 index = {"get_html": "00_scraping.ipynb",
          "find_links_by_func": "00_scraping.ipynb",
          "find_links_by_pattern": "00_scraping.ipynb",
-         "run_in_parallel": "01_utility.ipynb"}
+         "run_in_parallel": "01_utility.ipynb",
+         "FOOTBALL_DATA_LINK": "02_data.ipynb",
+         "unique_seasons": "02_data.ipynb",
+         "FOOTBALL_DATA_SEASONS": "02_data.ipynb",
+         "FOOTBALL_DATA_LEAGUE_CODES": "02_data.ipynb",
+         "FOOTBALL_DATA_LEAGUE_NAMES": "02_data.ipynb",
+         "build_full_link": "02_data.ipynb"}
 
 modules = ["scraping.py",
-           "utility.py"]
+           "utility.py",
+           "data/football_uk.py"]
 
 doc_url = "https://omlnaut.github.io/betting/"
 

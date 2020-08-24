@@ -2,9 +2,11 @@
 
 __all__ = ["index", "modules", "custom_doc_links", "git_url"]
 
-index = {}
+index = {"get_html": "00_scraping.ipynb",
+         "find_links_by_func": "00_scraping.ipynb",
+         "find_links_by_pattern": "00_scraping.ipynb"}
 
-modules = []
+modules = ["scraping.py"]
 
 doc_url = "https://omlnaut.github.io/betting/"
 

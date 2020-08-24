@@ -1,6 +1,7 @@
 {
   "betting": {
     "Overview": "/",
-    "Scraping": "scraping.html"
+    "Scraping": "scraping.html",
+    "Utility functions": "utility.html"
   }
 }

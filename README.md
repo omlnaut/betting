@@ -2,11 +2,11 @@
 > Summary description here.
 
 
-```
+```python
 from nbdev import *
 ```
 
-```
+```python
 from betting.core import *
 ```
 
@@ -20,7 +20,7 @@ This file will become your README and also the index of your documentation.
 
 Fill me in please! Don't forget code examples:
 
-```
+```python
 1+1
 ```
 

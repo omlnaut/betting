@@ -32,27 +32,16 @@ nb_path: "nbs\.ipynb_checkpoints\02_data-checkpoint.ipynb"
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-    </div>
-</div>
-</div>
 
 </div>
     {% endraw %}
 
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Examine-the-source">Examine the source<a class="anchor-link" href="#Examine-the-source"> </a></h1>
 </div>
-    {% endraw %}
-
+</div>
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Link: <a href="https://www.football-data.co.uk/data.php">https://www.football-data.co.uk/data.php</a></p>
@@ -101,7 +90,7 @@ nb_path: "nbs\.ipynb_checkpoints\02_data-checkpoint.ipynb"
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Understanding-the-features">Understanding the features<a class="anchor-link" href="#Understanding-the-features"> </a></h3>
+<h2 id="Understanding-the-features">Understanding the features<a class="anchor-link" href="#Understanding-the-features"> </a></h2>
 </div>
 </div>
 </div>
@@ -120,7 +109,20 @@ nb_path: "nbs\.ipynb_checkpoints\02_data-checkpoint.ipynb"
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Parsing-mainpage-for-country-pages">Parsing mainpage for country pages<a class="anchor-link" href="#Parsing-mainpage-for-country-pages"> </a></h3>
+<h1 id="Parsing">Parsing<a class="anchor-link" href="#Parsing"> </a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The following two sections derive the method for generating all necessary download links to the individual csv files. Most of this derivation is not needed in the actual download script and is only kept here for future reference.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Parsing-mainpage-for-country-pages">Parsing mainpage for country pages<a class="anchor-link" href="#Parsing-mainpage-for-country-pages"> </a></h2>
 </div>
 </div>
 </div>
@@ -237,7 +239,7 @@ italym.php
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Parsing-country-pages-for-results">Parsing country pages for results<a class="anchor-link" href="#Parsing-country-pages-for-results"> </a></h3>
+<h2 id="Parsing-country-pages-for-results">Parsing country pages for results<a class="anchor-link" href="#Parsing-country-pages-for-results"> </a></h2>
 </div>
 </div>
 </div>
@@ -372,7 +374,7 @@ italym.php
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Amount of seasons: 27
-Example: 0405
+Example: 0607
 </pre>
 </div>
 </div>
@@ -393,29 +395,17 @@ Example: 0405
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 
-</div>
-    {% endraw %}
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">unique_seasons</span><span class="p">(</span><span class="n">html</span><span class="p">):</span>
+    <span class="s1">&#39;Returns a list of all unique seasons for which result.csv files are found in the given html&#39;</span>
+    <span class="n">csv_links</span> <span class="o">=</span> <span class="n">find_links_by_pattern</span><span class="p">(</span><span class="n">html</span><span class="p">,</span> <span class="s1">&#39;mmz4281/\d</span><span class="si">{4}</span><span class="s1">/\w*\d\.csv&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">set</span><span class="p">(</span><span class="n">csv_link</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">csv_link</span> <span class="ow">in</span> <span class="n">csv_links</span><span class="p">)</span>
+</pre></div>
 
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-
-<div class="output_markdown rendered_html output_subarea ">
-<h4 id="unique_seasons" class="doc_header"><code>unique_seasons</code><a href="https://github.com/omlnaut/betting/tree/master/betting/data/football_uk.py#L16" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>unique_seasons</code>(<strong><code>html</code></strong>)</p>
-</blockquote>
-<p>Returns a list of all unique seasons for which result.csv files are found in the given html</p>
-
-</div>
-
-</div>
-
+    </div>
 </div>
 </div>
 
@@ -535,7 +525,7 @@ Processing  https://www.football-data.co.uk/greecem.php
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Number of available complete leagues: 25
-0405, 0102, 0910, 1415, 1617, 1314, 0809, 1213, 9900, 1516, 9697, 9798, 0506, 1011, 0607, 1112, 9899, 0203, 1718, 1920, 0708, 0304, 0001, 9596, 1819
+0607, 9899, 1516, 1415, 0809, 0102, 0001, 0304, 0203, 0405, 1718, 1314, 9697, 9900, 1819, 1617, 1011, 9798, 1112, 0910, 1920, 9596, 1213, 0708, 0506
 </pre>
 </div>
 </div>
@@ -760,16 +750,6 @@ G1: Ethniki Katigoria
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">league_codes</span> <span class="o">=</span> <span class="n">FOOTBALL_DATA_LEAGUE_CODES</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
 
 </div>
     {% endraw %}
@@ -777,22 +757,6 @@ G1: Ethniki Katigoria
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nd">@dataclass</span>
-<span class="k">class</span> <span class="nc">League</span><span class="p">:</span>
-    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
-    <span class="n">code</span><span class="p">:</span> <span class="nb">str</span>
-        
-<span class="n">leagues</span> <span class="o">=</span> <span class="p">[</span><span class="n">League</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">country_link</span><span class="p">,</span> <span class="n">code</span><span class="o">=</span><span class="n">league_code</span><span class="p">)</span> <span class="k">for</span> <span class="n">country_link</span><span class="p">,</span><span class="n">league_code</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">country_links</span><span class="p">,</span> <span class="n">league_codes</span><span class="p">)]</span>
-<span class="n">leagues</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
 
 <div class="output_wrapper">
 <div class="output">
@@ -800,19 +764,11 @@ G1: Ethniki Katigoria
 <div class="output_area">
 
 
+<div class="output_markdown rendered_html output_subarea ">
+<h2 id="League" class="doc_header"><code>class</code> <code>League</code><a href="https://github.com/omlnaut/betting/tree/master/betting/data/football_uk.py#L22" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>League</code>(<strong><code>name</code></strong>:<code>str</code>, <strong><code>code</code></strong>:<code>str</code>)</p>
+</blockquote>
+<p>League(name: str, code: str)</p>
 
-<div class="output_text output_subarea output_execute_result">
-<pre>[League(name=&#39;https://www.football-data.co.uk/englandm.php&#39;, code=&#39;E0&#39;),
- League(name=&#39;https://www.football-data.co.uk/scotlandm.php&#39;, code=&#39;E0&#39;),
- League(name=&#39;https://www.football-data.co.uk/germanym.php&#39;, code=&#39;D1&#39;),
- League(name=&#39;https://www.football-data.co.uk/italym.php&#39;, code=&#39;I1&#39;),
- League(name=&#39;https://www.football-data.co.uk/spainm.php&#39;, code=&#39;SP1&#39;),
- League(name=&#39;https://www.football-data.co.uk/francem.php&#39;, code=&#39;F1&#39;),
- League(name=&#39;https://www.football-data.co.uk/netherlandsm.php&#39;, code=&#39;N1&#39;),
- League(name=&#39;https://www.football-data.co.uk/belgiumm.php&#39;, code=&#39;B1&#39;),
- League(name=&#39;https://www.football-data.co.uk/portugalm.php&#39;, code=&#39;P1&#39;),
- League(name=&#39;https://www.football-data.co.uk/turkeym.php&#39;, code=&#39;T1&#39;),
- League(name=&#39;https://www.football-data.co.uk/greecem.php&#39;, code=&#39;G1&#39;)]</pre>
 </div>
 
 </div>
@@ -825,7 +781,7 @@ G1: Ethniki Katigoria
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Putting-it-all-together">Putting it all together<a class="anchor-link" href="#Putting-it-all-together"> </a></h4>
+<h2 id="Putting-it-all-together">Putting it all together<a class="anchor-link" href="#Putting-it-all-together"> </a></h2>
 </div>
 </div>
 </div>
@@ -843,8 +799,108 @@ G1: Ethniki Katigoria
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Number of leagues: &#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">leagues</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Number of seasons for each league: &#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">seasons</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">FOOTBALL_DATA_LEAGUES</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[League(name=&#39;england&#39;, code=&#39;E0&#39;),
+ League(name=&#39;scotland&#39;, code=&#39;E0&#39;),
+ League(name=&#39;germany&#39;, code=&#39;D1&#39;),
+ League(name=&#39;italy&#39;, code=&#39;I1&#39;),
+ League(name=&#39;spain&#39;, code=&#39;SP1&#39;),
+ League(name=&#39;france&#39;, code=&#39;F1&#39;),
+ League(name=&#39;netherlands&#39;, code=&#39;N1&#39;),
+ League(name=&#39;belgium&#39;, code=&#39;B1&#39;),
+ League(name=&#39;portugal&#39;, code=&#39;P1&#39;),
+ League(name=&#39;turkey&#39;, code=&#39;T1&#39;),
+ League(name=&#39;greece&#39;, code=&#39;G1&#39;)]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">FOOTBALL_DATA_SEASONS</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[&#39;1314&#39;,
+ &#39;9900&#39;,
+ &#39;1112&#39;,
+ &#39;9697&#39;,
+ &#39;0708&#39;,
+ &#39;1920&#39;,
+ &#39;9798&#39;,
+ &#39;1819&#39;,
+ &#39;0405&#39;,
+ &#39;9596&#39;,
+ &#39;0001&#39;,
+ &#39;1213&#39;,
+ &#39;0203&#39;,
+ &#39;0102&#39;,
+ &#39;0809&#39;,
+ &#39;1617&#39;,
+ &#39;1516&#39;,
+ &#39;1718&#39;,
+ &#39;1011&#39;,
+ &#39;0506&#39;,
+ &#39;0607&#39;,
+ &#39;9899&#39;,
+ &#39;0304&#39;,
+ &#39;1415&#39;,
+ &#39;0910&#39;]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Number of leagues: &#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">FOOTBALL_DATA_LEAGUES</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Number of seasons for each league: &#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">FOOTBALL_DATA_SEASONS</span><span class="p">))</span>
 </pre></div>
 
     </div>
@@ -883,8 +939,8 @@ Number of seasons for each league:  25
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">season</span> <span class="o">=</span> <span class="n">seasons</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span>
-<span class="n">league_code</span> <span class="o">=</span> <span class="n">leagues</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span><span class="o">.</span><span class="n">code</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">season</span> <span class="o">=</span> <span class="n">FOOTBALL_DATA_SEASONS</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span>
+<span class="n">league_code</span> <span class="o">=</span> <span class="n">FOOTBALL_DATA_LEAGUES</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span><span class="o">.</span><span class="n">code</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Season: &#39;</span><span class="p">,</span> <span class="n">season</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;League code: &#39;</span><span class="p">,</span> <span class="n">league_code</span><span class="p">)</span>
@@ -900,7 +956,7 @@ Number of seasons for each league:  25
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Season:  1314
+<pre>Season:  1920
 League code:  B1
 </pre>
 </div>
@@ -972,7 +1028,7 @@ League code:  B1
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&#39;https://www.football-data.co.uk/mmz4281/1314/B1.csv&#39;</pre>
+<pre>&#39;https://www.football-data.co.uk/mmz4281/1920/B1.csv&#39;</pre>
 </div>
 
 </div>

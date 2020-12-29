@@ -56,13 +56,42 @@ nb_path: "nbs\03_feature_engineering.ipynb"
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="read_football_csv" class="doc_header"><code>read_football_csv</code><a href="https://github.com/omlnaut/betting/tree/master/betting/feature_engineering.py#L6" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>read_football_csv</code>(<strong><code>path</code></strong>)</p>
+</blockquote>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../data/football_data_uk/germany/D1_1415.csv&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
-<span class="n">df</span><span class="o">.</span><span class="n">Date</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">Date</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">/%m/%y&#39;</span><span class="p">)</span>
-<span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;Date&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">read_football_csv</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="s1">&#39;../data/football_data_uk/germany/D1_1415.csv&#39;</span><span class="p">))</span>
 <span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 
@@ -270,7 +299,7 @@ nb_path: "nbs\03_feature_engineering.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="extract_teams" class="doc_header"><code>extract_teams</code><a href="https://github.com/omlnaut/betting/tree/master/betting/feature_engineering.py#L6" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>extract_teams</code>(<strong><code>df</code></strong>, <strong><code>home_team</code></strong>=<em><code>'HomeTeam'</code></em>, <strong><code>away_team</code></strong>=<em><code>'AwayTeam'</code></em>)</p>
+<h4 id="extract_teams" class="doc_header"><code>extract_teams</code><a href="https://github.com/omlnaut/betting/tree/master/betting/feature_engineering.py#L14" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>extract_teams</code>(<strong><code>df</code></strong>, <strong><code>home_team</code></strong>=<em><code>'HomeTeam'</code></em>, <strong><code>away_team</code></strong>=<em><code>'AwayTeam'</code></em>)</p>
 </blockquote>
 
 </div>
@@ -365,7 +394,7 @@ nb_path: "nbs\03_feature_engineering.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="add_gamedays" class="doc_header"><code>add_gamedays</code><a href="https://github.com/omlnaut/betting/tree/master/betting/feature_engineering.py#L19" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>add_gamedays</code>(<strong><code>df</code></strong>, <strong><code>home_team</code></strong>=<em><code>'HomeTeam'</code></em>, <strong><code>away_team</code></strong>=<em><code>'AwayTeam'</code></em>)</p>
+<h4 id="add_gamedays" class="doc_header"><code>add_gamedays</code><a href="https://github.com/omlnaut/betting/tree/master/betting/feature_engineering.py#L27" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>add_gamedays</code>(<strong><code>df</code></strong>, <strong><code>home_team</code></strong>=<em><code>'HomeTeam'</code></em>, <strong><code>away_team</code></strong>=<em><code>'AwayTeam'</code></em>)</p>
 </blockquote>
 
 </div>
@@ -453,7 +482,7 @@ nb_path: "nbs\03_feature_engineering.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="add_points" class="doc_header"><code>add_points</code><a href="https://github.com/omlnaut/betting/tree/master/betting/feature_engineering.py#L35" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>add_points</code>(<strong><code>df</code></strong>, <strong><code>home_team</code></strong>=<em><code>'HomeTeam'</code></em>, <strong><code>away_team</code></strong>=<em><code>'AwayTeam'</code></em>, <strong><code>date</code></strong>=<em><code>'Date'</code></em>)</p>
+<h4 id="add_points" class="doc_header"><code>add_points</code><a href="https://github.com/omlnaut/betting/tree/master/betting/feature_engineering.py#L43" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>add_points</code>(<strong><code>df</code></strong>, <strong><code>home_team</code></strong>=<em><code>'HomeTeam'</code></em>, <strong><code>away_team</code></strong>=<em><code>'AwayTeam'</code></em>, <strong><code>date</code></strong>=<em><code>'Date'</code></em>)</p>
 </blockquote>
 
 </div>
@@ -688,7 +717,7 @@ nb_path: "nbs\03_feature_engineering.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="add_positions" class="doc_header"><code>add_positions</code><a href="https://github.com/omlnaut/betting/tree/master/betting/feature_engineering.py#L79" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>add_positions</code>(<strong><code>df</code></strong>)</p>
+<h4 id="add_positions" class="doc_header"><code>add_positions</code><a href="https://github.com/omlnaut/betting/tree/master/betting/feature_engineering.py#L87" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>add_positions</code>(<strong><code>df</code></strong>)</p>
 </blockquote>
 
 </div>
@@ -923,7 +952,7 @@ nb_path: "nbs\03_feature_engineering.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="add_simple_diffs" class="doc_header"><code>add_simple_diffs</code><a href="https://github.com/omlnaut/betting/tree/master/betting/feature_engineering.py#L100" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>add_simple_diffs</code>(<strong><code>df</code></strong>)</p>
+<h4 id="add_simple_diffs" class="doc_header"><code>add_simple_diffs</code><a href="https://github.com/omlnaut/betting/tree/master/betting/feature_engineering.py#L108" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>add_simple_diffs</code>(<strong><code>df</code></strong>)</p>
 </blockquote>
 
 </div>

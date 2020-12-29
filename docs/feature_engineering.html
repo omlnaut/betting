@@ -60,7 +60,7 @@ nb_path: "nbs\03_feature_engineering.ipynb"
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../data/football_data_uk/germany/D1_1415.csv&#39;</span><span class="p">,</span> <span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../data/football_data_uk/germany/D1_1415.csv&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
 <span class="n">df</span><span class="o">.</span><span class="n">Date</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">Date</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">/%m/%y&#39;</span><span class="p">)</span>
 <span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;Date&#39;</span><span class="p">)</span>
 <span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -241,7 +241,7 @@ nb_path: "nbs\03_feature_engineering.ipynb"
     </tr>
   </tbody>
 </table>
-<p>5 rows × 67 columns</p>
+<p>5 rows Ã— 67 columns</p>
 </div>
 </div>
 
@@ -343,7 +343,7 @@ nb_path: "nbs\03_feature_engineering.ipynb"
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Game-day">Game day<a class="anchor-link" href="#Game-day"> </a></h3>
+<h2 id="Game-day">Game day<a class="anchor-link" href="#Game-day"> </a></h2>
 </div>
 </div>
 </div>
@@ -659,7 +659,7 @@ nb_path: "nbs\03_feature_engineering.ipynb"
     </tr>
   </tbody>
 </table>
-<p>5 rows × 70 columns</p>
+<p>5 rows Ã— 70 columns</p>
 </div>
 </div>
 
@@ -894,7 +894,7 @@ nb_path: "nbs\03_feature_engineering.ipynb"
     </tr>
   </tbody>
 </table>
-<p>5 rows × 72 columns</p>
+<p>5 rows Ã— 72 columns</p>
 </div>
 </div>
 
@@ -1129,7 +1129,7 @@ nb_path: "nbs\03_feature_engineering.ipynb"
     </tr>
   </tbody>
 </table>
-<p>5 rows × 74 columns</p>
+<p>5 rows Ã— 74 columns</p>
 </div>
 </div>
 

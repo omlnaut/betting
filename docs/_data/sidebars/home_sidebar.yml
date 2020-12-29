@@ -16,11 +16,14 @@ entries:
       title: Utility functions
       url: utility.html
     - output: web,pdf
-      title: 'First source: football-data.co.uk'
+      title: First source football-data.co.uk
       url: data.html
     - output: web,pdf
       title: Features
       url: feature_engineering.html
+    - output: web,pdf
+      title: Title
+      url: Untitled.html
     output: web
     title: betting
   output: web

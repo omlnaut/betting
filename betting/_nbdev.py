@@ -10,11 +10,17 @@ index = {"get_html": "00_scraping.ipynb",
          "FOOTBALL_DATA_SEASONS": "02_data.ipynb",
          "League": "02_data.ipynb",
          "FOOTBALL_DATA_LEAGUES": "02_data.ipynb",
-         "build_full_link": "02_data.ipynb"}
+         "build_full_link": "02_data.ipynb",
+         "extract_teams": "03_feature_engineering.ipynb",
+         "add_gamedays": "03_feature_engineering.ipynb",
+         "add_points": "03_feature_engineering.ipynb",
+         "add_positions": "03_feature_engineering.ipynb",
+         "add_simple_diffs": "03_feature_engineering.ipynb"}
 
 modules = ["scraping.py",
            "utility.py",
-           "data/football_uk.py"]
+           "data/football_uk.py",
+           "feature_engineering.py"]
 
 doc_url = "https://omlnaut.github.io/betting/"
 

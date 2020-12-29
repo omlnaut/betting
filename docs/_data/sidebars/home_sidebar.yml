@@ -21,9 +21,6 @@ entries:
     - output: web,pdf
       title: Features
       url: feature_engineering.html
-    - output: web,pdf
-      title: Title
-      url: Untitled.html
     output: web
     title: betting
   output: web

@@ -36,6 +36,24 @@ nb_path: "nbs\02_data.ipynb"
 
 <div class="inner_cell">
     <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">load_ext</span> autoreload
+<span class="o">%</span><span class="k">autoreload</span> 2
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span> 
 </pre></div>
 
@@ -81,7 +99,7 @@ nb_path: "nbs\02_data.ipynb"
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">mainpage_link</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;https://www.football-data.co.uk/data.php&#39;</span>
-<span class="n">mainpage_bs</span> <span class="o">=</span> <span class="n">get_html</span><span class="p">(</span><span class="n">mainpage_link</span><span class="p">)</span>
+<span class="n">mainpage_bs</span> <span class="o">=</span> <span class="n">cache</span><span class="p">(</span><span class="n">mainpage_link</span><span class="p">,</span> <span class="s1">&#39;football_data_mainpage&#39;</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -275,7 +293,7 @@ Brazil.php
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">example_country_link</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">parse</span><span class="o">.</span><span class="n">urljoin</span><span class="p">(</span><span class="n">mainpage_link</span><span class="p">,</span> <span class="n">country_links</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-<span class="n">country_html</span> <span class="o">=</span> <span class="n">get_html</span><span class="p">(</span><span class="n">example_country_link</span><span class="p">)</span>
+<span class="n">country_html</span> <span class="o">=</span> <span class="n">cache</span><span class="p">(</span><span class="n">example_country_link</span><span class="p">,</span> <span class="s1">&#39;football_data_country_html&#39;</span><span class="p">)</span>
 <span class="n">example_country_link</span>
 </pre></div>
 
@@ -391,7 +409,7 @@ Brazil.php
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Amount of seasons: 28
-Example: 0809
+Example: 0910
 </pre>
 </div>
 </div>
@@ -542,7 +560,7 @@ Processing  https://www.football-data.co.uk/greecem.php
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Number of available complete leagues: 26
-0809, 0102, 0001, 0910, 0405, 1213, 1718, 9798, 0304, 9697, 2021, 1314, 1819, 1011, 0607, 9596, 1516, 1617, 1415, 1112, 1920, 0506, 0708, 9899, 0203, 9900
+0910, 9596, 1718, 9697, 1819, 1516, 0405, 0506, 1112, 0304, 1617, 1314, 1920, 0809, 0708, 2021, 0203, 9900, 1213, 0102, 1415, 9798, 1011, 0607, 0001, 9899
 </pre>
 </div>
 </div>
@@ -669,7 +687,8 @@ E3: League 2
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">country_link</span> <span class="ow">in</span> <span class="n">country_links</span><span class="p">:</span>
-    <span class="n">html</span> <span class="o">=</span> <span class="n">get_html</span><span class="p">(</span><span class="n">country_link</span><span class="p">)</span>
+    <span class="n">country</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;co.uk/(.+)\.php&#39;</span><span class="p">,</span> <span class="n">country_link</span><span class="p">)</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">html</span> <span class="o">=</span> <span class="n">cache</span><span class="p">(</span><span class="n">country_link</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;football_data_</span><span class="si">{</span><span class="n">country</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="o">*</span><span class="mi">20</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">country_link</span><span class="p">)</span>
     <span class="n">find_subpage_mapping</span><span class="p">(</span><span class="n">html</span><span class="p">)</span>
@@ -768,7 +787,7 @@ G1: Ethniki Katigoria
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="League" class="doc_header"><code>class</code> <code>League</code><a href="https://github.com/omlnaut/betting/tree/master/betting/data/football_uk.py#L22" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>League</code>(<strong><code>name</code></strong>:<code>str</code>, <strong><code>code</code></strong>:<code>str</code>)</p>
+<h2 id="League" class="doc_header"><code>class</code> <code>League</code><a href="https://github.com/omlnaut/betting/tree/master/betting/data/football_uk.py#L24" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>League</code>(<strong><code>name</code></strong>:<code>str</code>, <strong><code>code</code></strong>:<code>str</code>)</p>
 </blockquote>
 <p>League(name: str, code: str)</p>
 
@@ -1003,7 +1022,7 @@ League code:  B1
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="build_full_link" class="doc_header"><code>build_full_link</code><a href="https://github.com/omlnaut/betting/tree/master/betting/data/football_uk.py#L30" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>build_full_link</code>(<strong><code>season</code></strong>, <strong><code>league_code</code></strong>, <strong><code>mainpage_link</code></strong>)</p>
+<h4 id="build_full_link" class="doc_header"><code>build_full_link</code><a href="https://github.com/omlnaut/betting/tree/master/betting/data/football_uk.py#L32" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>build_full_link</code>(<strong><code>season</code></strong>, <strong><code>league_code</code></strong>, <strong><code>mainpage_link</code></strong>)</p>
 </blockquote>
 
 </div>
@@ -1066,6 +1085,67 @@ League code:  B1
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>A team of researchers derived a profitable method for sports betting by taking averages of odds from different bookkeepers. They hosted their dataset on kaggle:</p>
 <p><a href="https://www.kaggle.com/austro/beat-the-bookie-worldwide-football-dataset">https://www.kaggle.com/austro/beat-the-bookie-worldwide-football-dataset</a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Standings-source-sport.de">Standings source sport.de<a class="anchor-link" href="#Standings-source-sport.de"> </a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Calculating points and standings from raw (and noisy) match data seems to be too prone to error. It's not rare that there are missing matches in 'complete' datasets. Therefore, accurate information about points, standings and matchdays is needed. Thankfully, sports.de offers a clean html representation of such data that is easily parseable.</p>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">base_url</span> <span class="o">=</span> <span class="s1">&#39;https://www.sport.de&#39;</span>
+<span class="n">league_example_url</span> <span class="o">=</span> <span class="n">base_url</span> <span class="o">+</span> <span class="s1">&#39;/fussball/deutschland-bundesliga/se580/2006-2007/ergebnisse-und-tabelle&#39;</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">league_example_bs</span> <span class="o">=</span> <span class="n">cache</span><span class="p">(</span><span class="n">league_example_url</span><span class="p">,</span> <span class="s1">&#39;league_example&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Season-links">Season links<a class="anchor-link" href="#Season-links"> </a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>From any result page for a league, links to all the seasons can be extracted.</p>
 
 </div>
 </div>

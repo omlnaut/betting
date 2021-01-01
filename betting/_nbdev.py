@@ -3,6 +3,8 @@
 __all__ = ["index", "modules", "custom_doc_links", "git_url"]
 
 index = {"get_html": "00_scraping.ipynb",
+         "cache": "00_scraping.ipynb",
+         "CACHE_DIR": "00_scraping.ipynb",
          "find_links_by_func": "00_scraping.ipynb",
          "find_links_by_pattern": "00_scraping.ipynb",
          "run_in_parallel": "01_utility.ipynb",

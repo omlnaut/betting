@@ -22,10 +22,10 @@ CACHE_DIR = Path('../data/cache')
 def cache(url, cache_name):
     chache_path = CACHE_DIR/cache_name
     if chache_path.is_file():
-        bs = BeautifulSoup(chache_path.open(), features="lxml")
+        bs = BeautifulSoup(chache_path.open(encoding='utf-8'), features="lxml")
     else:
         bs = get_html(url)
-        with chache_path.open('w') as f:
+        with chache_path.open('w', encoding='utf-8') as f:
             f.write(str(bs))
 
     return bs

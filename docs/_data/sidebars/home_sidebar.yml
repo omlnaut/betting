@@ -19,6 +19,9 @@ entries:
       title: First source football-data.co.uk
       url: data.html
     - output: web,pdf
+      title: Sport.de
+      url: sportde.html
+    - output: web,pdf
       title: Features
       url: feature_engineering.html
     output: web

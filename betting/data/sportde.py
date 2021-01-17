@@ -18,12 +18,13 @@ def season_links_from_page(bs):
     seasons_urls = {}
 
     for option in select_element.find_all('option'):
-        match = re.match(r'''/fussball/deutschland-bundesliga/.+/(\d\d\d\d-\d\d\d\d)/ergebnisse-und-tabelle/''', option['value'])
+        match = re.match(r'''/fussball/[^/]+/.+/(\d\d\d\d-\d\d\d\d)/ergebnisse-und-tabelle/''', option['value'])
         if match is None:
             print(option['value'])
             continue
         url = match.group(0)
         season = match.group(1)
+        if int(season[:4])<1950: continue
         season = season[2] + season[3] + season[7] + season[8]
         seasons_urls[season] = BASE_URL + url
 
@@ -38,14 +39,15 @@ def get_matchday_links(bs, expected_length=34):
         except:
             pass
 
-    assert len(matchday_links)==expected_length, f'Expected: {expected_length}. Actual: {len(matchday_links)}'
+    if expected_length is not None:
+        assert len(matchday_links)==expected_length, f'Expected: {expected_length}. Actual: {len(matchday_links)}'
     return matchday_links
 
 # Cell
 def get_matchday_dates(matchday_bs):
     divs = matchday_bs.find_all('div', {'class': 'match-date'})
     dates = [div.text.split(' ')[0] for div in divs]
-    dates = list(map(lambda d: datetime.strptime(d, '%d.%m.%Y'), dates))
+    dates = list(set(map(lambda d: datetime.strptime(d, '%d.%m.%Y'), dates)))
     return dates
 
 # Cell
@@ -98,9 +100,9 @@ def get_standings(matchday_bs):
     return standings
 
 # Cell
-def scrape_season(season, season_link, do_cache=False):
+def scrape_season(season, season_link, expected_matchdays=None, do_cache=False):
     season_bs = get_html(season_link)
-    matchday_links = get_matchday_links(season_bs)
+    matchday_links = get_matchday_links(season_bs, expected_length=expected_matchdays)
 
     standings = []
     matchdays = []
@@ -108,7 +110,7 @@ def scrape_season(season, season_link, do_cache=False):
 
     for matchday_link in matchday_links:
         matchday = re.search('/md([^/]+)/', matchday_link).group(1)
-        if do_cache: matchday_bs = cache(matchday_link, f'scrape_{season}_{matchday}')
+        if do_cache: matchday_bs = cache(matchday_link, f'scrape_{season}_{matchday}_premiera')
         else: matchday_bs = get_html(matchday_link)
 
         dates = get_matchday_dates(matchday_bs)

@@ -14,10 +14,10 @@ target_seasons = [[season, season_urls[season]] for season in season_urls.keys()
 def process_season(info):
 	season, url = info
 	print(season)
-	standings, matchdays, games = scrape_season(season, url)
+	standings, matchdays, games = scrape_season(season, url, expected_matchdays=None)
 	save_season(standings, matchdays, games, 'premier_league', save_path)
 
 if __name__=='__main__':
 	process_season(target_seasons[0])
 	#with Pool(6) as p:
-	#	p.map(process_season, target_seasons)
+		#p.map(process_season, target_seasons)

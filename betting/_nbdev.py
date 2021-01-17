@@ -27,7 +27,10 @@ index = {"get_html": "00_scraping.ipynb",
          "add_gamedays": "04_feature_engineering.ipynb",
          "add_points": "04_feature_engineering.ipynb",
          "add_positions": "04_feature_engineering.ipynb",
-         "add_simple_diffs": "04_feature_engineering.ipynb"}
+         "add_simple_diffs": "04_feature_engineering.ipynb",
+         "results_from_goals": "04_feature_engineering.ipynb",
+         "create_profit_df": "04_feature_engineering.ipynb",
+         "add_profit_cols": "04_feature_engineering.ipynb"}
 
 modules = ["scraping.py",
            "utility.py",

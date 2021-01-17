@@ -20,7 +20,7 @@ def season_links_from_page(bs):
     for option in select_element.find_all('option'):
         match = re.match(r'''/fussball/[^/]+/.+/(\d\d\d\d-\d\d\d\d)/ergebnisse-und-tabelle/''', option['value'])
         if match is None:
-            print(option['value'])
+            print('Unexpected season link: ', option['value'])
             continue
         url = match.group(0)
         season = match.group(1)
@@ -110,7 +110,7 @@ def scrape_season(season, season_link, expected_matchdays=None, do_cache=False):
 
     for matchday_link in matchday_links:
         matchday = re.search('/md([^/]+)/', matchday_link).group(1)
-        if do_cache: matchday_bs = cache(matchday_link, f'scrape_{season}_{matchday}_premiera')
+        if do_cache: matchday_bs = cache(matchday_link, f'scrape_{season}_{matchday}_{cache_prefix}')
         else: matchday_bs = get_html(matchday_link)
 
         dates = get_matchday_dates(matchday_bs)
@@ -136,6 +136,8 @@ def set_dtypes(df, dtypes):
     return df
 
 def save_season(standings, matchdays, games, league, save_path):
+    save_path.mkdir(parents=True, exist_ok=True)
+
     matchday_df = pd.DataFrame(matchdays, columns=['season', 'matchday', 'start_date', 'end_date'])
     matchday_df.matchday = matchday_df.matchday.astype(int)
     matchday_df['league'] = league

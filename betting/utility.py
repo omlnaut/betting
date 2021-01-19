@@ -9,3 +9,6 @@ import multiprocessing as mp
 def run_in_parallel(func, iterable, n_workers=6):
     pool = mp.Pool(processes=n_workers)
     return pool.map(func, iterable)
+
+# Cell
+import pandas as pd

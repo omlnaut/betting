@@ -60,7 +60,7 @@ nb_path: "nbs/01_utility.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="run_in_parallel" class="doc_header"><code>run_in_parallel</code><a href="https://github.com/omlnaut/betting/tree/master/betting/utility.py#L9" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>run_in_parallel</code>(<strong><code>func</code></strong>, <strong><code>iterable</code></strong>, <strong><code>n_workers</code></strong>=<em><code>6</code></em>)</p>
+<h4 id="run_in_parallel" class="doc_header"><code>run_in_parallel</code><a href="https://github.com/omlnaut/betting/tree/master/betting/utility.py#L10" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>run_in_parallel</code>(<strong><code>func</code></strong>, <strong><code>iterable</code></strong>, <strong><code>n_workers</code></strong>=<em><code>6</code></em>)</p>
 </blockquote>
 
 </div>
@@ -260,30 +260,54 @@ nb_path: "nbs/01_utility.ipynb"
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
-<div class="input">
 
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">overlapping_cols</span><span class="p">(</span><span class="n">df1</span><span class="p">,</span> <span class="n">df2</span><span class="p">):</span>
-    <span class="k">return</span> <span class="p">[</span><span class="n">col1</span> <span class="k">for</span> <span class="n">col1</span> <span class="ow">in</span> <span class="n">df1</span><span class="o">.</span><span class="n">columns</span> <span class="k">if</span> <span class="n">col1</span> <span class="ow">in</span> <span class="n">df2</span><span class="o">.</span><span class="n">columns</span><span class="p">]</span>
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
 
 
-<span class="k">def</span> <span class="nf">merge_with_prefix</span><span class="p">(</span><span class="n">original</span><span class="p">,</span> <span class="n">additional</span><span class="p">,</span> <span class="n">prefix</span><span class="p">,</span> <span class="n">left_on</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">right_on</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="k">assert</span> <span class="ow">not</span> <span class="p">((</span><span class="n">left_on</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">)</span> <span class="o">^</span> <span class="p">(</span><span class="n">right_on</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">)),</span> <span class="s2">&quot;Leave both left_on and right_on as None to merge over all columns with the same name or specify both.&quot;</span>
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="overlapping_cols" class="doc_header"><code>overlapping_cols</code><a href="https://github.com/omlnaut/betting/tree/master/betting/utility.py#L18" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>overlapping_cols</code>(<strong><code>df1</code></strong>, <strong><code>df2</code></strong>)</p>
+</blockquote>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
     
-    <span class="k">if</span> <span class="n">right_on</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">left_on</span> <span class="o">=</span> <span class="n">overlapping_cols</span><span class="p">(</span><span class="n">original</span><span class="p">,</span> <span class="n">additional</span><span class="p">)</span>
-        <span class="n">right_on</span> <span class="o">=</span> <span class="n">left_on</span>
-        
-    <span class="n">col_renamer</span> <span class="o">=</span> <span class="p">{</span><span class="n">col</span><span class="p">:</span> <span class="n">prefix</span><span class="o">+</span><span class="n">col</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">additional</span><span class="o">.</span><span class="n">columns</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">right_on</span><span class="p">}</span>
-    <span class="n">to_merge</span> <span class="o">=</span> <span class="n">additional</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">col_renamer</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;columns&#39;</span><span class="p">)</span>
+<div class="cell border-box-sizing code_cell rendered">
 
-    <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">original</span><span class="p">,</span> <span class="n">to_merge</span><span class="p">,</span> <span class="n">left_on</span><span class="o">=</span><span class="n">left_on</span><span class="p">,</span> <span class="n">right_on</span><span class="o">=</span><span class="n">right_on</span><span class="p">)</span>
-</pre></div>
+<div class="output_wrapper">
+<div class="output">
 
-    </div>
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="merge_with_prefix" class="doc_header"><code>merge_with_prefix</code><a href="https://github.com/omlnaut/betting/tree/master/betting/utility.py#L22" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>merge_with_prefix</code>(<strong><code>original</code></strong>, <strong><code>additional</code></strong>, <strong><code>prefix</code></strong>, <strong><code>left_on</code></strong>=<em><code>None</code></em>, <strong><code>right_on</code></strong>=<em><code>None</code></em>)</p>
+</blockquote>
+
+</div>
+
+</div>
+
 </div>
 </div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
 
 </div>
     {% endraw %}
@@ -528,6 +552,351 @@ nb_path: "nbs/01_utility.ipynb"
 </div>
     {% endraw %}
 
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Translation-with-SequenceMatcher">Translation with SequenceMatcher<a class="anchor-link" href="#Translation-with-SequenceMatcher"> </a></h2>
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">actuals</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Bayern Munich&#39;</span><span class="p">,</span> <span class="s1">&#39;Wolfsburg&#39;</span><span class="p">,</span> <span class="s1">&#39;Schalke&#39;</span><span class="p">,</span> <span class="s1">&#39;Nurnberg&#39;</span><span class="p">,</span> <span class="s1">&#39;Mainz&#39;</span><span class="p">,</span> <span class="s1">&#39;Hansa Rostock&#39;</span><span class="p">,</span> <span class="s1">&#39;B. Monchengladbach&#39;</span><span class="p">,</span> <span class="s1">&#39;Bochum&#39;</span><span class="p">,</span> <span class="s1">&#39;Hannover&#39;</span><span class="p">,</span> <span class="s1">&#39;Kaiserslautern&#39;</span><span class="p">,</span> <span class="s1">&#39;VfB Stuttgart&#39;</span><span class="p">,</span> <span class="s1">&#39;Hamburger SV&#39;</span><span class="p">,</span> <span class="s1">&#39;Freiburg&#39;</span><span class="p">,</span> <span class="s1">&#39;Bayer Leverkusen&#39;</span><span class="p">,</span> <span class="s1">&#39;Dortmund&#39;</span><span class="p">,</span> <span class="s1">&#39;Arminia Bielefeld&#39;</span><span class="p">,</span> <span class="s1">&#39;Hertha Berlin&#39;</span><span class="p">,</span> <span class="s1">&#39;Werder Bremen&#39;</span><span class="p">,</span> <span class="s1">&#39;Duisburg&#39;</span><span class="p">,</span> <span class="s1">&#39;Eintracht Frankfurt&#39;</span><span class="p">,</span> <span class="s1">&#39;Alemannia Aachen&#39;</span><span class="p">,</span> <span class="s1">&#39;Energie Cottbus&#39;</span><span class="p">,</span> <span class="s1">&#39;Karlsruher&#39;</span><span class="p">,</span> <span class="s1">&#39;Hoffenheim&#39;</span><span class="p">,</span> <span class="s1">&#39;Augsburg&#39;</span><span class="p">,</span> <span class="s1">&#39;Greuther Furth&#39;</span><span class="p">,</span> <span class="s1">&#39;Dusseldorf&#39;</span><span class="p">,</span> <span class="s1">&#39;Braunschweig&#39;</span><span class="p">,</span> <span class="s1">&#39;Paderborn&#39;</span><span class="p">,</span> <span class="s1">&#39;Köln&#39;</span><span class="p">]</span>
+<span class="n">targets</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;SV Werder&#39;</span><span class="p">,</span> <span class="s1">&#39;Leverkusen&#39;</span><span class="p">,</span> <span class="s1">&#39;FC Bayern&#39;</span><span class="p">,</span> <span class="s1">&#39;Hamburger SV&#39;</span><span class="p">,</span> <span class="s1">&#39;Schalke 04&#39;</span><span class="p">,</span> <span class="s1">&#39;1.FC Köln&#39;</span><span class="p">,</span> <span class="s1">&#39;Dortmund&#39;</span><span class="p">,</span> <span class="s1">&#39;Hannover 96&#39;</span><span class="p">,</span> <span class="s1">&#39;Hertha BSC&#39;</span><span class="p">,</span> <span class="s1">&#39;Wolfsburg&#39;</span><span class="p">,</span> <span class="s1">&#39;Duisburg&#39;</span><span class="p">,</span> <span class="s1">&#39;VfB Stuttgart&#39;</span><span class="p">,</span> <span class="s2">&quot;K&#39;lautern&quot;</span><span class="p">,</span> <span class="s1">&#39;Mainz 05&#39;</span><span class="p">,</span> <span class="s1">&#39;Bielefeld&#39;</span><span class="p">,</span> <span class="s1">&#39;Frankfurt&#39;</span><span class="p">,</span> <span class="s1">&#39;Nürnberg&#39;</span><span class="p">,</span> <span class="s2">&quot;M&#39;gladbach&quot;</span><span class="p">,</span> <span class="s1">&#39;Bochum&#39;</span><span class="p">,</span> <span class="s1">&#39;Cottbus&#39;</span><span class="p">,</span> <span class="s1">&#39;Aachen&#39;</span><span class="p">,</span> <span class="s1">&#39;Karlsruhe&#39;</span><span class="p">,</span> <span class="s1">&#39;Rostock&#39;</span><span class="p">,</span> <span class="s1">&#39;Hoffenheim&#39;</span><span class="p">,</span> <span class="s1">&#39;SC Freiburg&#39;</span><span class="p">,</span> <span class="s1">&#39;St. Pauli&#39;</span><span class="p">,</span> <span class="s1">&#39;Augsburg&#39;</span><span class="p">,</span> <span class="s1">&#39;Düsseldorf&#39;</span><span class="p">,</span> <span class="s1">&#39;Gr. Fürth&#39;</span><span class="p">,</span> <span class="s1">&#39;Braunschweig&#39;</span><span class="p">,</span> <span class="s1">&#39;Paderborn&#39;</span><span class="p">,</span> <span class="s1">&#39;Ingolstadt&#39;</span><span class="p">,</span> <span class="s1">&#39;Darmstadt&#39;</span><span class="p">,</span> <span class="s1">&#39;RB Leipzig&#39;</span><span class="p">,</span> <span class="s1">&#39;Union Berlin&#39;</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="similar_score" class="doc_header"><code>similar_score</code><a href="https://github.com/omlnaut/betting/tree/master/betting/utility.py#L39" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>similar_score</code>(<strong><code>a</code></strong>, <strong><code>b</code></strong>)</p>
+</blockquote>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="similar_n" class="doc_header"><code>similar_n</code><a href="https://github.com/omlnaut/betting/tree/master/betting/utility.py#L42" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>similar_n</code>(<strong><code>actual</code></strong>, <strong><code>targets</code></strong>, <strong><code>n</code></strong>=<em><code>5</code></em>)</p>
+</blockquote>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">actuals</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;Bayern Munich&#39;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">similar_n</span><span class="p">(</span><span class="n">actuals</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">targets</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[&#39;FC Bayern&#39;, &#39;Braunschweig&#39;, &#39;Paderborn&#39;, &#34;K&#39;lautern&#34;, &#39;Hannover 96&#39;]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="create_translation" class="doc_header"><code>create_translation</code><a href="https://github.com/omlnaut/betting/tree/master/betting/utility.py#L48" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>create_translation</code>(<strong><code>actuals</code></strong>, <strong><code>targets</code></strong>)</p>
+</blockquote>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">translation</span> <span class="o">=</span> <span class="n">create_translation</span><span class="p">(</span><span class="n">actuals</span><span class="p">,</span> <span class="n">targets</span><span class="p">)</span>
+<span class="n">translation</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>{&#39;Bayern Munich&#39;: &#39;FC Bayern&#39;,
+ &#39;Wolfsburg&#39;: &#39;Wolfsburg&#39;,
+ &#39;Schalke&#39;: &#39;Schalke 04&#39;,
+ &#39;Nurnberg&#39;: &#39;Nürnberg&#39;,
+ &#39;Mainz&#39;: &#39;Mainz 05&#39;,
+ &#39;Hansa Rostock&#39;: &#39;Rostock&#39;,
+ &#39;B. Monchengladbach&#39;: &#34;M&#39;gladbach&#34;,
+ &#39;Bochum&#39;: &#39;Bochum&#39;,
+ &#39;Hannover&#39;: &#39;Hannover 96&#39;,
+ &#39;Kaiserslautern&#39;: &#34;K&#39;lautern&#34;,
+ &#39;VfB Stuttgart&#39;: &#39;VfB Stuttgart&#39;,
+ &#39;Hamburger SV&#39;: &#39;Hamburger SV&#39;,
+ &#39;Freiburg&#39;: &#39;SC Freiburg&#39;,
+ &#39;Bayer Leverkusen&#39;: &#39;Leverkusen&#39;,
+ &#39;Dortmund&#39;: &#39;Dortmund&#39;,
+ &#39;Arminia Bielefeld&#39;: &#39;Bielefeld&#39;,
+ &#39;Hertha Berlin&#39;: &#39;Hertha BSC&#39;,
+ &#39;Werder Bremen&#39;: &#39;SV Werder&#39;,
+ &#39;Duisburg&#39;: &#39;Duisburg&#39;,
+ &#39;Eintracht Frankfurt&#39;: &#39;Frankfurt&#39;,
+ &#39;Alemannia Aachen&#39;: &#39;Aachen&#39;,
+ &#39;Energie Cottbus&#39;: &#39;Cottbus&#39;,
+ &#39;Karlsruher&#39;: &#39;Karlsruhe&#39;,
+ &#39;Hoffenheim&#39;: &#39;Hoffenheim&#39;,
+ &#39;Augsburg&#39;: &#39;Augsburg&#39;,
+ &#39;Greuther Furth&#39;: &#39;Gr. Fürth&#39;,
+ &#39;Dusseldorf&#39;: &#39;Düsseldorf&#39;,
+ &#39;Braunschweig&#39;: &#39;Braunschweig&#39;,
+ &#39;Paderborn&#39;: &#39;Paderborn&#39;,
+ &#39;Köln&#39;: &#39;1.FC Köln&#39;}</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="reverse_dict" class="doc_header"><code>reverse_dict</code><a href="https://github.com/omlnaut/betting/tree/master/betting/utility.py#L52" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>reverse_dict</code>(<strong><code>d</code></strong>)</p>
+</blockquote>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">reverse_dict</span><span class="p">(</span><span class="n">translation</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>{&#39;FC Bayern&#39;: &#39;Bayern Munich&#39;,
+ &#39;Wolfsburg&#39;: &#39;Wolfsburg&#39;,
+ &#39;Schalke 04&#39;: &#39;Schalke&#39;,
+ &#39;Nürnberg&#39;: &#39;Nurnberg&#39;,
+ &#39;Mainz 05&#39;: &#39;Mainz&#39;,
+ &#39;Rostock&#39;: &#39;Hansa Rostock&#39;,
+ &#34;M&#39;gladbach&#34;: &#39;B. Monchengladbach&#39;,
+ &#39;Bochum&#39;: &#39;Bochum&#39;,
+ &#39;Hannover 96&#39;: &#39;Hannover&#39;,
+ &#34;K&#39;lautern&#34;: &#39;Kaiserslautern&#39;,
+ &#39;VfB Stuttgart&#39;: &#39;VfB Stuttgart&#39;,
+ &#39;Hamburger SV&#39;: &#39;Hamburger SV&#39;,
+ &#39;SC Freiburg&#39;: &#39;Freiburg&#39;,
+ &#39;Leverkusen&#39;: &#39;Bayer Leverkusen&#39;,
+ &#39;Dortmund&#39;: &#39;Dortmund&#39;,
+ &#39;Bielefeld&#39;: &#39;Arminia Bielefeld&#39;,
+ &#39;Hertha BSC&#39;: &#39;Hertha Berlin&#39;,
+ &#39;SV Werder&#39;: &#39;Werder Bremen&#39;,
+ &#39;Duisburg&#39;: &#39;Duisburg&#39;,
+ &#39;Frankfurt&#39;: &#39;Eintracht Frankfurt&#39;,
+ &#39;Aachen&#39;: &#39;Alemannia Aachen&#39;,
+ &#39;Cottbus&#39;: &#39;Energie Cottbus&#39;,
+ &#39;Karlsruhe&#39;: &#39;Karlsruher&#39;,
+ &#39;Hoffenheim&#39;: &#39;Hoffenheim&#39;,
+ &#39;Augsburg&#39;: &#39;Augsburg&#39;,
+ &#39;Gr. Fürth&#39;: &#39;Greuther Furth&#39;,
+ &#39;Düsseldorf&#39;: &#39;Dusseldorf&#39;,
+ &#39;Braunschweig&#39;: &#39;Braunschweig&#39;,
+ &#39;Paderborn&#39;: &#39;Paderborn&#39;,
+ &#39;1.FC Köln&#39;: &#39;Köln&#39;}</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Export">Export<a class="anchor-link" href="#Export"> </a></h2>
+</div>
+</div>
+</div>
 </div>
  
 

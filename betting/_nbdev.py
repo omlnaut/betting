@@ -39,7 +39,9 @@ index = {"get_html": "00_scraping.ipynb",
          "add_profit_cols": "04_feature_engineering.ipynb",
          "normalize_by_args": "04_feature_engineering.ipynb",
          "normalize_col": "04_feature_engineering.ipynb",
-         "ColumnNormalizer": "04_feature_engineering.ipynb"}
+         "ColumnNormalizer": "04_feature_engineering.ipynb",
+         "odds_loss": "04_feature_engineering.ipynb",
+         "odds_profit": "04_feature_engineering.ipynb"}
 
 modules = ["scraping.py",
            "utility.py",

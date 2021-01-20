@@ -2,11 +2,12 @@
 
 __all__ = ['read_football_csv', 'extract_teams', 'add_gamedays', 'add_points', 'add_positions', 'add_simple_diffs',
            'results_from_goals', 'create_profit_df', 'add_profit_cols', 'normalize_by_args', 'normalize_col',
-           'ColumnNormalizer']
+           'ColumnNormalizer', 'odds_loss', 'odds_profit']
 
 # Cell
 from pathlib import Path
 import pandas as pd
+import torch.nn.functional as F
 
 # Cell
 def read_football_csv(path):
@@ -176,3 +177,18 @@ class ColumnNormalizer:
 
     def __call__(self, x):
         return normalize_by_args(x, self.mean, self.std)
+
+# Cell
+def odds_loss(actual, target):
+    """
+        Compute the mean negative profit
+    """
+    probs = F.softmax(actual, dim=1)
+    return -(probs*target).sum(dim=1).mean()
+
+def odds_profit(actual, target):
+    """
+        Compute the total profit
+    """
+    probs = F.softmax(actual, dim=1)
+    return (probs*target).sum()

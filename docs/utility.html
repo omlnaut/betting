@@ -572,8 +572,8 @@ nb_path: "nbs\01_utility.ipynb"
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">actuals</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Bayern Munich&#39;</span><span class="p">,</span> <span class="s1">&#39;Wolfsburg&#39;</span><span class="p">,</span> <span class="s1">&#39;Schalke&#39;</span><span class="p">,</span> <span class="s1">&#39;Nurnberg&#39;</span><span class="p">,</span> <span class="s1">&#39;Mainz&#39;</span><span class="p">,</span> <span class="s1">&#39;Hansa Rostock&#39;</span><span class="p">,</span> <span class="s1">&#39;B. Monchengladbach&#39;</span><span class="p">,</span> <span class="s1">&#39;Bochum&#39;</span><span class="p">,</span> <span class="s1">&#39;Hannover&#39;</span><span class="p">,</span> <span class="s1">&#39;Kaiserslautern&#39;</span><span class="p">,</span> <span class="s1">&#39;VfB Stuttgart&#39;</span><span class="p">,</span> <span class="s1">&#39;Hamburger SV&#39;</span><span class="p">,</span> <span class="s1">&#39;Freiburg&#39;</span><span class="p">,</span> <span class="s1">&#39;Bayer Leverkusen&#39;</span><span class="p">,</span> <span class="s1">&#39;Dortmund&#39;</span><span class="p">,</span> <span class="s1">&#39;Arminia Bielefeld&#39;</span><span class="p">,</span> <span class="s1">&#39;Hertha Berlin&#39;</span><span class="p">,</span> <span class="s1">&#39;Werder Bremen&#39;</span><span class="p">,</span> <span class="s1">&#39;Duisburg&#39;</span><span class="p">,</span> <span class="s1">&#39;Eintracht Frankfurt&#39;</span><span class="p">,</span> <span class="s1">&#39;Alemannia Aachen&#39;</span><span class="p">,</span> <span class="s1">&#39;Energie Cottbus&#39;</span><span class="p">,</span> <span class="s1">&#39;Karlsruher&#39;</span><span class="p">,</span> <span class="s1">&#39;Hoffenheim&#39;</span><span class="p">,</span> <span class="s1">&#39;Augsburg&#39;</span><span class="p">,</span> <span class="s1">&#39;Greuther Furth&#39;</span><span class="p">,</span> <span class="s1">&#39;Dusseldorf&#39;</span><span class="p">,</span> <span class="s1">&#39;Braunschweig&#39;</span><span class="p">,</span> <span class="s1">&#39;Paderborn&#39;</span><span class="p">,</span> <span class="s1">&#39;Köln&#39;</span><span class="p">]</span>
-<span class="n">targets</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;SV Werder&#39;</span><span class="p">,</span> <span class="s1">&#39;Leverkusen&#39;</span><span class="p">,</span> <span class="s1">&#39;FC Bayern&#39;</span><span class="p">,</span> <span class="s1">&#39;Hamburger SV&#39;</span><span class="p">,</span> <span class="s1">&#39;Schalke 04&#39;</span><span class="p">,</span> <span class="s1">&#39;1.FC Köln&#39;</span><span class="p">,</span> <span class="s1">&#39;Dortmund&#39;</span><span class="p">,</span> <span class="s1">&#39;Hannover 96&#39;</span><span class="p">,</span> <span class="s1">&#39;Hertha BSC&#39;</span><span class="p">,</span> <span class="s1">&#39;Wolfsburg&#39;</span><span class="p">,</span> <span class="s1">&#39;Duisburg&#39;</span><span class="p">,</span> <span class="s1">&#39;VfB Stuttgart&#39;</span><span class="p">,</span> <span class="s2">&quot;K&#39;lautern&quot;</span><span class="p">,</span> <span class="s1">&#39;Mainz 05&#39;</span><span class="p">,</span> <span class="s1">&#39;Bielefeld&#39;</span><span class="p">,</span> <span class="s1">&#39;Frankfurt&#39;</span><span class="p">,</span> <span class="s1">&#39;Nürnberg&#39;</span><span class="p">,</span> <span class="s2">&quot;M&#39;gladbach&quot;</span><span class="p">,</span> <span class="s1">&#39;Bochum&#39;</span><span class="p">,</span> <span class="s1">&#39;Cottbus&#39;</span><span class="p">,</span> <span class="s1">&#39;Aachen&#39;</span><span class="p">,</span> <span class="s1">&#39;Karlsruhe&#39;</span><span class="p">,</span> <span class="s1">&#39;Rostock&#39;</span><span class="p">,</span> <span class="s1">&#39;Hoffenheim&#39;</span><span class="p">,</span> <span class="s1">&#39;SC Freiburg&#39;</span><span class="p">,</span> <span class="s1">&#39;St. Pauli&#39;</span><span class="p">,</span> <span class="s1">&#39;Augsburg&#39;</span><span class="p">,</span> <span class="s1">&#39;Düsseldorf&#39;</span><span class="p">,</span> <span class="s1">&#39;Gr. Fürth&#39;</span><span class="p">,</span> <span class="s1">&#39;Braunschweig&#39;</span><span class="p">,</span> <span class="s1">&#39;Paderborn&#39;</span><span class="p">,</span> <span class="s1">&#39;Ingolstadt&#39;</span><span class="p">,</span> <span class="s1">&#39;Darmstadt&#39;</span><span class="p">,</span> <span class="s1">&#39;RB Leipzig&#39;</span><span class="p">,</span> <span class="s1">&#39;Union Berlin&#39;</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">actuals</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Bayern Munich&#39;</span><span class="p">,</span> <span class="s1">&#39;Wolfsburg&#39;</span><span class="p">,</span> <span class="s1">&#39;Schalke&#39;</span><span class="p">,</span> <span class="s1">&#39;Nurnberg&#39;</span><span class="p">,</span> <span class="s1">&#39;Mainz&#39;</span><span class="p">,</span> <span class="s1">&#39;Hansa Rostock&#39;</span><span class="p">,</span> <span class="s1">&#39;B. Monchengladbach&#39;</span><span class="p">,</span> <span class="s1">&#39;Bochum&#39;</span><span class="p">,</span> <span class="s1">&#39;Hannover&#39;</span><span class="p">,</span> <span class="s1">&#39;Kaiserslautern&#39;</span><span class="p">,</span> <span class="s1">&#39;VfB Stuttgart&#39;</span><span class="p">,</span> <span class="s1">&#39;Hamburger SV&#39;</span><span class="p">,</span> <span class="s1">&#39;Freiburg&#39;</span><span class="p">,</span> <span class="s1">&#39;Bayer Leverkusen&#39;</span><span class="p">,</span> <span class="s1">&#39;Dortmund&#39;</span><span class="p">,</span> <span class="s1">&#39;Arminia Bielefeld&#39;</span><span class="p">,</span> <span class="s1">&#39;Hertha Berlin&#39;</span><span class="p">,</span> <span class="s1">&#39;Werder Bremen&#39;</span><span class="p">,</span> <span class="s1">&#39;Duisburg&#39;</span><span class="p">,</span> <span class="s1">&#39;Eintracht Frankfurt&#39;</span><span class="p">,</span> <span class="s1">&#39;Alemannia Aachen&#39;</span><span class="p">,</span> <span class="s1">&#39;Energie Cottbus&#39;</span><span class="p">,</span> <span class="s1">&#39;Karlsruher&#39;</span><span class="p">,</span> <span class="s1">&#39;Hoffenheim&#39;</span><span class="p">,</span> <span class="s1">&#39;Augsburg&#39;</span><span class="p">,</span> <span class="s1">&#39;Greuther Furth&#39;</span><span class="p">,</span> <span class="s1">&#39;Dusseldorf&#39;</span><span class="p">,</span> <span class="s1">&#39;Braunschweig&#39;</span><span class="p">,</span> <span class="s1">&#39;Paderborn&#39;</span><span class="p">,</span> <span class="s1">&#39;KÃ¶ln&#39;</span><span class="p">]</span>
+<span class="n">targets</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;SV Werder&#39;</span><span class="p">,</span> <span class="s1">&#39;Leverkusen&#39;</span><span class="p">,</span> <span class="s1">&#39;FC Bayern&#39;</span><span class="p">,</span> <span class="s1">&#39;Hamburger SV&#39;</span><span class="p">,</span> <span class="s1">&#39;Schalke 04&#39;</span><span class="p">,</span> <span class="s1">&#39;1.FC KÃ¶ln&#39;</span><span class="p">,</span> <span class="s1">&#39;Dortmund&#39;</span><span class="p">,</span> <span class="s1">&#39;Hannover 96&#39;</span><span class="p">,</span> <span class="s1">&#39;Hertha BSC&#39;</span><span class="p">,</span> <span class="s1">&#39;Wolfsburg&#39;</span><span class="p">,</span> <span class="s1">&#39;Duisburg&#39;</span><span class="p">,</span> <span class="s1">&#39;VfB Stuttgart&#39;</span><span class="p">,</span> <span class="s2">&quot;K&#39;lautern&quot;</span><span class="p">,</span> <span class="s1">&#39;Mainz 05&#39;</span><span class="p">,</span> <span class="s1">&#39;Bielefeld&#39;</span><span class="p">,</span> <span class="s1">&#39;Frankfurt&#39;</span><span class="p">,</span> <span class="s1">&#39;NÃ¼rnberg&#39;</span><span class="p">,</span> <span class="s2">&quot;M&#39;gladbach&quot;</span><span class="p">,</span> <span class="s1">&#39;Bochum&#39;</span><span class="p">,</span> <span class="s1">&#39;Cottbus&#39;</span><span class="p">,</span> <span class="s1">&#39;Aachen&#39;</span><span class="p">,</span> <span class="s1">&#39;Karlsruhe&#39;</span><span class="p">,</span> <span class="s1">&#39;Rostock&#39;</span><span class="p">,</span> <span class="s1">&#39;Hoffenheim&#39;</span><span class="p">,</span> <span class="s1">&#39;SC Freiburg&#39;</span><span class="p">,</span> <span class="s1">&#39;St. Pauli&#39;</span><span class="p">,</span> <span class="s1">&#39;Augsburg&#39;</span><span class="p">,</span> <span class="s1">&#39;DÃ¼sseldorf&#39;</span><span class="p">,</span> <span class="s1">&#39;Gr. FÃ¼rth&#39;</span><span class="p">,</span> <span class="s1">&#39;Braunschweig&#39;</span><span class="p">,</span> <span class="s1">&#39;Paderborn&#39;</span><span class="p">,</span> <span class="s1">&#39;Ingolstadt&#39;</span><span class="p">,</span> <span class="s1">&#39;Darmstadt&#39;</span><span class="p">,</span> <span class="s1">&#39;RB Leipzig&#39;</span><span class="p">,</span> <span class="s1">&#39;Union Berlin&#39;</span><span class="p">]</span>
 </pre></div>
 
     </div>
@@ -761,7 +761,7 @@ nb_path: "nbs\01_utility.ipynb"
 <pre>{&#39;Bayern Munich&#39;: &#39;FC Bayern&#39;,
  &#39;Wolfsburg&#39;: &#39;Wolfsburg&#39;,
  &#39;Schalke&#39;: &#39;Schalke 04&#39;,
- &#39;Nurnberg&#39;: &#39;Nürnberg&#39;,
+ &#39;Nurnberg&#39;: &#39;NÃ¼rnberg&#39;,
  &#39;Mainz&#39;: &#39;Mainz 05&#39;,
  &#39;Hansa Rostock&#39;: &#39;Rostock&#39;,
  &#39;B. Monchengladbach&#39;: &#34;M&#39;gladbach&#34;,
@@ -783,11 +783,11 @@ nb_path: "nbs\01_utility.ipynb"
  &#39;Karlsruher&#39;: &#39;Karlsruhe&#39;,
  &#39;Hoffenheim&#39;: &#39;Hoffenheim&#39;,
  &#39;Augsburg&#39;: &#39;Augsburg&#39;,
- &#39;Greuther Furth&#39;: &#39;Gr. Fürth&#39;,
- &#39;Dusseldorf&#39;: &#39;Düsseldorf&#39;,
+ &#39;Greuther Furth&#39;: &#39;Gr. FÃ¼rth&#39;,
+ &#39;Dusseldorf&#39;: &#39;DÃ¼sseldorf&#39;,
  &#39;Braunschweig&#39;: &#39;Braunschweig&#39;,
  &#39;Paderborn&#39;: &#39;Paderborn&#39;,
- &#39;Köln&#39;: &#39;1.FC Köln&#39;}</pre>
+ &#39;KÃ¶ln&#39;: &#39;1.FC KÃ¶ln&#39;}</pre>
 </div>
 
 </div>
@@ -854,7 +854,7 @@ nb_path: "nbs\01_utility.ipynb"
 <pre>{&#39;FC Bayern&#39;: &#39;Bayern Munich&#39;,
  &#39;Wolfsburg&#39;: &#39;Wolfsburg&#39;,
  &#39;Schalke 04&#39;: &#39;Schalke&#39;,
- &#39;Nürnberg&#39;: &#39;Nurnberg&#39;,
+ &#39;NÃ¼rnberg&#39;: &#39;Nurnberg&#39;,
  &#39;Mainz 05&#39;: &#39;Mainz&#39;,
  &#39;Rostock&#39;: &#39;Hansa Rostock&#39;,
  &#34;M&#39;gladbach&#34;: &#39;B. Monchengladbach&#39;,
@@ -876,11 +876,11 @@ nb_path: "nbs\01_utility.ipynb"
  &#39;Karlsruhe&#39;: &#39;Karlsruher&#39;,
  &#39;Hoffenheim&#39;: &#39;Hoffenheim&#39;,
  &#39;Augsburg&#39;: &#39;Augsburg&#39;,
- &#39;Gr. Fürth&#39;: &#39;Greuther Furth&#39;,
- &#39;Düsseldorf&#39;: &#39;Dusseldorf&#39;,
+ &#39;Gr. FÃ¼rth&#39;: &#39;Greuther Furth&#39;,
+ &#39;DÃ¼sseldorf&#39;: &#39;Dusseldorf&#39;,
  &#39;Braunschweig&#39;: &#39;Braunschweig&#39;,
  &#39;Paderborn&#39;: &#39;Paderborn&#39;,
- &#39;1.FC Köln&#39;: &#39;Köln&#39;}</pre>
+ &#39;1.FC KÃ¶ln&#39;: &#39;KÃ¶ln&#39;}</pre>
 </div>
 
 </div>

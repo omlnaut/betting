@@ -149,7 +149,7 @@ def create_profit_df(df, odds_home, odds_draw, odds_away, home_profit='y_home', 
     return y_df
 
 def add_profit_cols(df, odds_home, odds_draw, odds_away, home_profit='y_home', draw_profit='y_draw', away_profit='y_away', df_result_col='result'):
-    profit_df = create_profit_df(odds_df, 'odds_home', 'odds_draw', 'odds_away')
+    profit_df = create_profit_df(df, odds_home, odds_draw, odds_away)
 
     return df.merge(profit_df, left_index=True, right_index=True)
 

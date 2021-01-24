@@ -19,7 +19,7 @@ def overlapping_cols(df1, df2):
     return [col1 for col1 in df1.columns if col1 in df2.columns]
 
 
-def merge_with_prefix(original, additional, prefix, left_on=None, right_on=None):
+def merge_with_prefix(original, additional, prefix, left_on=None, right_on=None, drop_additional=False):
     assert not ((left_on is not None) ^ (right_on is not None)), "Leave both left_on and right_on as None to merge over all columns with the same name or specify both."
 
     if right_on is None:
@@ -29,7 +29,13 @@ def merge_with_prefix(original, additional, prefix, left_on=None, right_on=None)
     col_renamer = {col: prefix+col for col in additional.columns if not col in right_on}
     to_merge = additional.rename(col_renamer, axis='columns')
 
-    return pd.merge(original, to_merge, left_on=left_on, right_on=right_on)
+    merged = pd.merge(original, to_merge, left_on=left_on, right_on=right_on)
+
+    if drop_additional:
+        to_drop = [col for col in right_on if not col in left_on]
+        merged.drop(columns=to_drop, inplace=True)
+
+    return merged
 
 # Cell
 import numpy as np
